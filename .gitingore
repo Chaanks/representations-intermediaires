@@ -1,0 +1,10 @@
+Embed/
+first/
+hello-world/
+lightning_logs/
+runs/
+test/
+test-project/
+tp2/
+wandb/
+__*
