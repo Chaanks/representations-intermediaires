@@ -64,15 +64,8 @@ if __name__ == "__main__":
     model = Net(args)
 
     wandb_logger = WandbLogger(name='layer-1',project='test')
-    #neptune_logger = NeptuneLogger(
-    #    api_key="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5haSIsImFwaV91cmwiOiJodHRwczovL3VpLm5lcHR1bmUuYWkiLCJhcGlfa2V5IjoiYzc5YWY4ODEtMDQ3MC00ZDNmLTljMzctYjEyZmJkOWZkY2FlIn0=",
-    #    project_name="chaanks/test",
-    #    experiment_name="first",  # Optional,
-        #close_after_fit=False,
-    #)
 
     trainer = Trainer(gpus=1, early_stop_callback=True, logger=wandb_logger, num_sanity_val_steps=0, progress_bar_refresh_rate=0)
-    #trainer = Trainer(gpus=1, early_stop_callback=True, logger=neptune_logger, num_sanity_val_steps=0)
     trainer.fit(model)
     trainer.test()
 
